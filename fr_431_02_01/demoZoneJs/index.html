@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <title>Document</title>
+    <script>
+        function uneFunction() {
+            for (var i = 0; i<= 1e6; i++) {
+                
+            }
+            console.log("uneFonction");
+            console.log("niveau uneFonction:"+Zone.current.name);
+        }
+        
+        function main(){
+            console.log("niveau Main:"+Zone.current.name);
+            let starttime = new Date();
+            setTimeout(uneFunction, 2000);
+            //uneFunction();
+
+            let endtime = new Date() - starttime ;
+            console.log(endtime);
+            //console.log();
+        }
+    
+        // creation de l'objet Option dune zone
+        var options = { 
+            name: "myZone",
+            onScheduleTask: (parent, current, target, task)=>{
+                parent.scheduleTask(target, task);
+                console.log("onScheduler from here!");
+                this.startDate = new Date();
+            },
+
+            onHasTask:(delegate, current, target, hasTaskState)=>{
+                console.log("onHastask");
+                console.log(hasTaskState);
+                if(!hasTaskState.macroTask){
+                    console.log("MacroTask end at : "+ (new Date() - this.startDate));
+                }
+            }
+        }
+        var myZone = Zone.current.fork(options);
+        myZone.run(main);
+        //main();
+    </script>
+</head>
+<body>
+    Salut
+    
+</body>
+</html>
