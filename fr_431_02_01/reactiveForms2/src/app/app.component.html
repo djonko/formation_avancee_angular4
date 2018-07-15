@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+ 
+</div>
+
+<div style="text-align:center">
+  
+  <form [formGroup] = "customerFormGrp">
+    Name : <input type="text" formControlName="name"> <br>
+    FirstName : <input type="text" formControlName="firstName"><br>
+    IsNew : <select formControlName="isNew" >
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select><br>
+    <div formGroupName='address'>
+      Street : <input type="text" formControlName="street"><br>
+      City : <input type="text" formControlName="city"><br>
+    </div>
+  </form>
+
+  <p>
+    customer form values: {{customerFormGrp.value | json}}
+  </p>
+
+  <p>
+      customer form status: {{customerFormGrp.status | json}}
+    </p>
+ 
+  <button (click)="changeProps()">Change Properties</button>
+</div>
