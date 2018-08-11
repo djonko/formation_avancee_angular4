@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+  <h2>{{todo | json}}</h2>
+
+  <h2>Task : {{todo.task}}</h2>
+  <h2>done : {{ todo.done | checkmark }}</h2>
+</div>
+
+
