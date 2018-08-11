@@ -8,13 +8,20 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" routerLink="/admin">Admin</a>
+            <a class="nav-link" [routerLink]="[{outlets:{adminOutlet:['admin']}}]">Admin</a>
         </li>
     </ul>
     
     <!-- Le place replace ou le component s'affichera-->
     <router-outlet>
     
+    </router-outlet>
+    <hr>
+
+    <!-- la configuration d'un chemin secondaire passe par l'attribute name-->
+    <!--Ce router-outlet affichera le contenu de la route admin-->
+    <router-outlet name="adminOutlet">
+
     </router-outlet>
 
 </div>
