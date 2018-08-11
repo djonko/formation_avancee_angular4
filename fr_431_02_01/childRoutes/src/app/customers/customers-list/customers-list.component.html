@@ -1,0 +1,13 @@
+<p>
+  customers-list works!
+</p>
+
+<ul class="items">
+  <li *ngFor="let customer of customers2 | async"  (click)="setOnclickDetail(customer)">
+    <span class="badge badge-primary">{{customer.id}}</span>
+    {{ customer.name }}
+  </li>
+</ul>
+
+<!-- pour l'affichage du detail de la liste-->
+<router-outlet></router-outlet>
