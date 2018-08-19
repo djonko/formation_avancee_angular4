@@ -1,0 +1,13 @@
+<div *ngIf='todo'>
+  <form [formGroup]="todoForm">
+    <h2 class="form-signin-heading">Todo</h2>
+    <label for="action" class="sr-only">Action</label>
+    <input formControlName="action" type="text"  id="action" class="form-control" placeholder="action" autofocus >
+
+    <label for="dueDate" class="sr-only">dueDate</label>
+    <input formControlName="dueDate" type="text"  id="dueDate" class="form-control" placeholder="dueDate" autofocus >
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]='todoForm.status==="INVALID"'>Save</button>
+    
+  </form>
+</div>

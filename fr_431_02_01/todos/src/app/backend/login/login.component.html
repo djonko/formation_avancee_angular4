@@ -1,0 +1,19 @@
+<form class="form-signin" novalidate (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+
+  <h2 class="form-signin-heading">Please sign in</h2>
+
+  <div class="alert" *ngIf="message" >
+    {{message}}
+  </div>
+
+  <label for="inputLogin" class="sr-only">Login</label>
+  <input formControlName="login" type="text" id="inputLogin" class="form-control" placeholder="Login" autofocus>
+
+
+  <label for="inputPassword" class="sr-only">Login</label>
+  <input formControlName="password" type="text" id="inputPassword" class="form-control"  autofocus>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+
+
+</form>

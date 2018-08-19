@@ -1,0 +1,8 @@
+<td>{{todo.id}}</td>
+<td>{{todo.action}}</td>
+<td>{{todo.dueDate}}</td>
+<td>{{todo.done}}</td>
+<td>
+    <button class="btn btn-primary" (click)='edit(todo)'>Edit</button>
+    <button class="btn btn-danger float-right" (click)='delete(todo)'>Delete</button>
+</td>
