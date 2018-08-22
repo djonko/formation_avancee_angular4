@@ -34,8 +34,8 @@ export class TodoService {
   }
 
 
-  getTodo(id:string): Observable<any>{
-    return this.http.get(this.url+'/'+id);
+  getTodo(id:string): Observable<Todo>{
+    return this.http.get(this.url+'/'+id).map(data=> <Todo>data.json());
   }
 
   saveTodo(todo: Todo): Observable<any>{

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx';
 import { from } from 'rxjs';
+import { User } from './user.class';
 
 @Injectable()
 export class AuthenticationService {
@@ -17,9 +18,9 @@ export class AuthenticationService {
    login(username:string, password: string): Observable<any>{
       let url:string = TodoConfig.getUrlAdmin()+"?userName="+username+"&password="+password;
       return this.http.get(url).map((response)=>{
-          let user:{};
+          let user: User;
           if(response.json().length> 0){
-            user = response.json()[0];
+            user = response.json()[0] as User;
             localStorage.setItem('currentUser',JSON.stringify(user));
           }else{
             throw new Error("Auth error");
